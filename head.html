@@ -1,46 +1,39 @@
 ---
 title: My page
 sidebar: toc
+layout: default
 ---
 
 
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Home</title>
-  </head>
-  <body>
+<body>
 
-    {% include nav.html nav=page.nav %}
-    
-    <h1></h1>
-    {{ site.title }}
-    <h1>{{ page.name | upcase | truncate: 6 }}</h1>
-    {% if page.show_heading %}
-      <h1>{{ page.heading | upcase | truncate: 3 }}</h1>
-    {% endif %}
-    <h1>{{ "Hello World!" | downcase }}</h1>
-    <h1>{{ page.heading }}</h1>
-    <h1>Hello World!</h1>
+  <h1></h1>
+  {{ site.title }}
+  <h1>{{ page.name | upcase | truncate: 6 }}</h1>
+  {% if page.show_heading %}
+    <h1>{{ page.heading | upcase | truncate: 3 }}</h1>
+  {% endif %}
+  <h1>{{ "Hello World!" | downcase }}</h1>
+  <h1>{{ page.heading }}</h1>
+  <h1>Hello World!</h1>
 
-    <ul>
-    {% for member in site.data.members %}
-      <li>
-        <a href="https://github.com/{{ member.github }}">
-          {{ member.name }}
-        </a>
-      </li>
-    {% endfor %}
-    </ul>
-
-    {% for item in site.data.members.toc %}
-    <h3>{{ item.title }}</h3>
-      <ul>
-        {% for entry in item.subfolderitems %}
-          <li><a href="{{ entry.url }}">{{ entry.page }}</a></li>
-        {% endfor %}
-      </ul>
+  <ul>
+  {% for member in site.data.members %}
+    <li>
+      <a href="https://github.com/{{ member.github }}">
+        {{ member.name }}
+      </a>
+    </li>
   {% endfor %}
+  </ul>
 
-  </body>
-</html>
+  {% for item in site.data.members.toc %}
+  <h3>{{ item.title }}</h3>
+    <ul>
+      {% for entry in item.subfolderitems %}
+        <li><a href="{{ entry.url }}">{{ entry.page }}</a></li>
+      {% endfor %}
+    </ul>
+{% endfor %}
+
+</body>
