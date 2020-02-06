@@ -1,0 +1,32 @@
+---
+someContent: "This is some content"
+---
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Home</title>
+  </head>
+  <body>
+    <h1>  {{ site.title }} </h1>
+    {% include nav.html nav=page.nav %}
+
+    {{ content }}
+
+    {% capture include %}{% include mycontent.md %}{% endcapture %}
+    {{ include | markdownify }}
+
+    <button onclick="someFunction()">Click me</button>
+
+    <p id="intro"></p>
+
+    <script>
+
+    function someFunction() {
+        document.getElementById("intro").innerHTML = "{{ page.someContent }}";
+    }
+    </script>
+
+
+  </body>
+</html>
